@@ -1,0 +1,70 @@
+REF Cursors
+====================================
+1. Strong REF Cursors are associated with some structure 
+TYPE str_curs IS REF CURSOR RETURN table%ROWTYPE; -- it has the row structure of the 'table'
+
+2. Weak REF Cursors are not associated with a certain structure
+TYPE weak_curs IS REF CURSOR;
+
+also we can use built-in SYS_REFCURSOR
+weak_curs SYS_REFCURSOR;
+
+
+====================================
+NOT NULL and CONSTANT
+====================================
+They have to be initialized on their declaration
+
+
+====================================
+Anchor Datatypes
+====================================
+1. %TYPE which is used to anchor a variable to some attibute's data type
+book_name book.name%TYPE
+
+if we're refering to the type of a variable inside of our source code, and if that variable has the constraint of
+NOT NULL, then after using %TYPE anchor, we have to add a DEFAULT value for that variable
+but it is not present when the variable anchors the type of database table column. NOT NULL constraints from tables aren't transferred.
+
+2. %ROWTYPE which is used to anchor a record to some table's row type (its columns, so on)
+recrd book%ROWTYPE
+
+====================================
+Subtypes
+====================================
+SUBTYPES have to be declared in the DECLARE block or in a PACKAGE or in function, procedure. 
+
+Syntax : 
+SUBTYPE subtype_name IS base_type
+
+There're 2 types of subtypes:
+
+1. Constrained
+	Constrained subtypes have, well, constraints on their original datatypes, for ex,
+	SUBTYPE NEGATIVE IS BINARY_INTEGER RANGE -2147483648..-1
+
+2. Unconstrained
+	SUBTYPE DOUBLE IS BINARY_DOUBLE
+	as it seems, unconstrained subtypes are like aliases for main datatypes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

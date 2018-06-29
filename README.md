@@ -1,5 +1,6 @@
 # PLSQL
-This repository contains basic building blocks in PL/SQL
+This repository contains basic building blocks in PL/SQL.
+
 Note. For using these codes in Oracle, you must unlock HR schema, because the tables used belong to HR, mostly "employees" table
 
 + [Explicit Cursors](https://github.com/MensurOwary/plsql/tree/master/cursors)
